@@ -1,4 +1,3 @@
-#include 
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
@@ -10,27 +9,27 @@ typedef struct dictNode{
     void *value;
     bool accepting;
     dictNode *next;
-}dictNode;
+} dictNode;
 
 dictNode *newDictNode(char *me, bool accept){
     dictNode *toreturn = (dictNode *)malloc(sizeof(dictNode));
     toreturn->key=me;
     toreturn->value=NULL;
     toreturn->accepting=accept;
-    next=NULL;
+    toreturn->next=NULL;
     return toreturn;
 }
 void main(int argc, char **argv){
     dictNode *head = (dictNode *) malloc(sizeof(dictNode));
     dictNode **transitions = &head; // to keep track of dictionary for access throughout main
-    FILE readme = open(argv[1]);
+    FILE *readme = open(argv[1]);
     here = false;
     char *line=fgets(readme);
     do{
 
         if(here){
             int lits= 0;
-            while(line[lits]!=":"){
+            while(line[lits]!=':'){
                 lits++;
             } 
             char *initial = strndup(line,lits);
@@ -50,10 +49,10 @@ void main(int argc, char **argv){
             }
         }
         elif(line.strip()[:5] == "start"){
-            state = line.split()[len(line.split())-1]
+            state = line.split()[len(line.split())-1];
         }
         elif(line.strip()[:3] == "end"){
-            line.split()[len(line.split())-1]
+            line.split()[len(line.split())-1];
             //accepting=true;
         }
         elif(strcmp(line,"[transitions]\n")==0){
