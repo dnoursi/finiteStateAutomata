@@ -46,6 +46,6 @@ def tryy(triple,sequence):
         print("Reject. Final state is "+state )
 def main():
     tryy(generate(sys.argv[1]),sys.argv[2])
-    #print(generate(sys.argv[1]))
+    print(generate(sys.argv[1]))
 if __name__=="__main__":
     main()
