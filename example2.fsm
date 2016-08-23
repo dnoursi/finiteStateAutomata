@@ -1,0 +1,12 @@
+[states]
+names: start, 1, 2, 3, error
+start: start
+end: 3
+
+
+[transitions]
+start: 	a:1 , b:2, *:error
+1:	a:1 , b:2 , *:error
+2:	c:3 , *:error
+3:	c:3 , *:error
+error:	*:error

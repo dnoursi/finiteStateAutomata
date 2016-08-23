@@ -1,0 +1,11 @@
+[states]
+names: start,1,2,3,4
+start: start
+end: 4
+
+[transitions]
+start:	a:1 , b:2 , *:start
+1:	c:3 , *:1
+2:	d:4 , *:2
+3:	a:4 , *:3
+4:	d:4 , *:start

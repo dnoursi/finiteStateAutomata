@@ -1,0 +1,15 @@
+digraph finite_state_machine{
+	rankdir=LR;
+	size="8,5"
+	node [shape = doublecircle]; 3;
+	node [shape = circle];
+	1 -> error [ label = "*" ];
+	1 -> 2 [ label = "b" ];
+	start -> 1 [ label = "a" ];
+	start -> error [ label = "*" ];
+	3 -> 3 [ label = "c" ];
+	3 -> error [ label = "*" ];
+	2 -> 3 [ label = "c" ];
+	2 -> error [ label = "*" ];
+	error -> error [ label = "*" ];
+}
