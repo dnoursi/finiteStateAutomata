@@ -1,5 +1,5 @@
 # finiteStateAutomata
-Right now I wrote, in Python and C, programs to analyze accepting FSAs for specific inputs 
+I wrote, in Python and C, programs to analyze Acceptors and determine their functionality given specific inputs 
 
 ## Python
 
@@ -18,3 +18,6 @@ I also added a new method for generating a new dictNode,  a struct I defined to 
 
 This sequencing of nodes means that finding a specific node is a process in iterating through nodes from the head
 
+# Usage
+
+The programs in Python and C should both be called with two arguments: an fsm file, then the corresponding fsm.gv file
