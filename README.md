@@ -20,4 +20,7 @@ This sequencing of nodes means that finding a specific node is a process in iter
 
 # Usage
 
-The programs in Python and C should both be called with two arguments: an fsm file, then the corresponding fsm.gv file
+The programs in Python and C should both be called with two arguments: an fsm file and the sequence of transitions to analyze. Possible transitions can be found in the fsm file. A call would be e.g.
+
+./fsm.py example1.fsm abc
+./fsm.py example2.fsm abcdef
