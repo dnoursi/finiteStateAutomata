@@ -8,7 +8,7 @@ typedef struct dictNode{
     char *key;
     void *value;
     bool accepting;
-    dictNode *next;
+    struct dictNode *next;
 } dictNode;
 
 dictNode *newDictNode(char *me, bool accept){
@@ -22,8 +22,8 @@ dictNode *newDictNode(char *me, bool accept){
 void main(int argc, char **argv){
     dictNode *head = (dictNode *) malloc(sizeof(dictNode));
     dictNode **transitions = &head; // to keep track of dictionary for access throughout main
-    FILE *readme = open(argv[1]);
-    here = false;
+    FILE *readme = fopen(argv[1], "r");
+    char here = false;
     char *line=fgets(readme);
     do{
 
@@ -33,19 +33,19 @@ void main(int argc, char **argv){
                 lits++;
             } 
             char *initial = strndup(line,lits);
-            dictNode newNode=newDictNode(initial,false);
+            dictNode *newNode = newDictNode(initial,false);
             int lits2=lits;
             while (line[lits2]!='0'){
-                while(strcmp(line[lits2],":")!=0){
+                while(line[lits2] != ':'){
                     lits2++;
                 } 
                 int lits3=lits2;
-                while(strcmp(line[lits3],",")!=0){
+                while(line[lits3] != ','){
                     lits3++;
                 }
-		transition = strndup(&initial[lits],lits2-lits);
-                final = strndup(&initial[lits2],lits3-lits); 
-                //transitions[initial][transition]=final
+		char *transition = strndup(&initial[lits],lits2-lits);
+                char *final = strndup(&initial[lits2],lits3-lits); 
+                //transitions[initial][transition]=final;
             }
         }
         elif(line.strip()[:5] == "start"){
@@ -61,7 +61,7 @@ void main(int argc, char **argv){
         line=fgets(readme);
     }while(line!=NULL);
     
-    readme.close()
+    fclose(readme);
     line=argv[2];
     int count=0;
     for(int i=0;i<sizeof(line);i++){
