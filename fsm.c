@@ -64,11 +64,11 @@ void main(int argc, char **argv){
     fclose(readme);
     line=argv[2];
     int count=0;
-    for(int i=0;i<sizeof(line);i++){
-        if letter in transitions[state].keys(){
+    for(int i=0; i<sizeof(line); i++){
+        if(letter in transitions[state].keys()){
                     state=transitions[state][letter]
         }        
-        elif "*" in transitions[state].keys(){     
+        else if("*" in transitions[state].keys()){     
                state=transitions[state]["*"]
         }        
     if(state== argv[1]):
